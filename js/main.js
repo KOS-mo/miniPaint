@@ -1,6 +1,45 @@
 /* global HELPER, EVENTS, LAYER, POP, FILE, GUI, HELP, DRAW */
 /* global WIDTH, HEIGHT, canvas_back, canvas_grid, COLOR, ALPHA */
 
+// Mis variables GLOBALES:
+var prenda = "";
+var dateFromPost;
+
+getParameter();
+
+function getParameter() {
+  // Obtiene el argumento de la URL para saber qué imagen mostrar de fondo
+  // Modifica las variables GLOBALES dateFromPost y prenda.
+  var $_GET = {},
+    args = location.search.substr(1).split(/&/);
+  for (var i=0; i<args.length; ++i) {
+    var tmp = args[i].split(/=/);
+    if (tmp[0] != "") {
+      $_GET[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp.slice(1).join("").replace("+", " "));
+    }
+  }
+
+  dateFromPost = $_GET;
+  
+  // Checar: Esto es para pruebas
+  dateFromPost = 1;
+
+  // 1 Playera
+  // 2 Vestido
+  // 3 bolsa
+  if(dateFromPost == 1){
+    prenda = "Playera.png";
+  }
+  else{
+    if(dateFromPost == 2){
+      prenda = "Vestido.png";
+    }
+    else{
+      prenda = "Bolsa.png"; 
+    }
+  }
+} // Fin de getParameter()
+
 var MAIN = new MAIN_CLASS();
 document.onload = MAIN.init(true);
 

@@ -103,10 +103,16 @@ function GUI_CLASS() {
 		document.getElementById("all_colors").innerHTML = html;
 	};
 	
+	// Todo: CHECK HERE! CHANGE THE WIDTH AND HIGHT
 	this.autodetect_dimensions = function(){
 		var canvas_wrapper = document.querySelector('#canvas_wrapper');
-		var page_w = canvas_wrapper.clientWidth;
-		var page_h = canvas_wrapper.clientHeight;
+		//// var page_w = canvas_wrapper.clientWidth;
+		//// var page_h = canvas_wrapper.clientHeight;
+		
+		// Nuevas lineas
+		var page_w = 680;
+		var page_h = 462;
+
 		var auto_size = false;
 		
 		var save_resolution_cookie = HELPER.getCookie('save_resolution');
@@ -343,8 +349,11 @@ function GUI_CLASS() {
 	
 	this.zoom_auto = function(only_increase){
 		var canvas_wrapper = document.querySelector('#canvas_wrapper');
-		var page_w = canvas_wrapper.clientWidth;
-		var page_h = canvas_wrapper.clientHeight;
+		//// var page_w = canvas_wrapper.clientWidth;
+		//// var page_h = canvas_wrapper.clientHeight;		
+
+		var page_w = 680;
+		var page_h = 462;
 		
 		var best_width = page_w / WIDTH * 100;
 		var best_height = page_h / HEIGHT * 100;

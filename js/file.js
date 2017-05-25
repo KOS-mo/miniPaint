@@ -91,6 +91,7 @@ function FILE_CLASS() {
 		);
 	};
 
+	// todo: CHECAR!
 	//open
 	this.file_open = function () {
 		EDIT.save_state();
@@ -117,7 +118,7 @@ function FILE_CLASS() {
 		a.multiple = 'multiple ';
 		document.getElementById("tmp").appendChild(a);
 		document.getElementById('file_open').addEventListener('change', function (e) {
-			self.open_handler(e);
+			self.open_handler(e); // Esta linea abre la ventana para escoger imagen
 		}, false);
 
 		//force click

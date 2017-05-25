@@ -647,6 +647,7 @@ function call_menu(class_name, function_name, parameter) {
 
 	//exec
 	class_name[function_name](parameter);
+	//FILE[file_open](); //Esto es lo que se está haciendo cuando se abre un file
 
 	GUI.zoom();
 }

@@ -18,6 +18,7 @@ var COLOR = '#0000ff';				//active color
 var ALPHA = 255;					//active color alpha
 var LANG = 'en';					//active language
 
+/*
 var DRAW_TOOLS_CONFIG = [
 	{name: 'select_tool', 	title: 'Select object tool',	icon: ['sprites.png', 0+7, 2],	attributes: {}		},
 	{name: 'select_square', title: 'Select area tool', 	icon: ['sprites.png', -50+4, 5],	attributes: {}		},
@@ -25,7 +26,7 @@ var DRAW_TOOLS_CONFIG = [
 	{name: 'erase',		title: 'Erase',			icon: ['sprites.png', -100+3, 4],	attributes: {size: 30, circle: true, strict: true}	},
 	{name: 'fill', 		title: 'Fill',			icon: ['sprites.png', -150+3, 3],	attributes: {power: 0, anti_aliasing: false}	},
 	{name: 'pick_color', 	title: 'Pick Color',		icon: ['sprites.png', -200+3, 3],	attributes: {}		},
-	{name: 'pencil',		title: 'Pencil',			icon: ['sprites.png', -250+3, 3],	attributes: {}		},
+	{name: 'pencil',		title: 'Pencil',			icon: ['sprites.png', -250+3, 3],	attributes: {}		},	
 	{name: 'line', 		title: 'Draw line',		icon: ['sprites.png', -300+3, 3],	attributes: {size: 1, type_values: ['Simple', 'Multi-line', 'Arrow', 'Curve'] }	},
 	{name: 'letters', 	title: 'Draw letters',		icon: ['sprites.png', -350+3, 4],	attributes: {}	},
 	{name: 'draw_square', 	title: 'Draw rectangle',	icon: ['sprites.png', -400+3, 5],	attributes: {fill: false, square: false}	},
@@ -39,4 +40,13 @@ var DRAW_TOOLS_CONFIG = [
 	{name: 'clone_tool', 	title: 'Clone tool',		icon: ['sprites.png', -350+4, -50+3],	attributes: {size: 30, anti_aliasing: true}	},
 	{name: 'gradient_tool', title: 'Gradient',		icon: ['sprites.png', -400+3, -50+4],	attributes: {radial: false, power: 50}	},
 	{name: 'crop_tool',	title: 'Crop',			icon: ['sprites.png', -450+2, -50+2],	attributes: {	} },
+];
+*/
+
+var DRAW_TOOLS_CONFIG = [
+	{name: 'select_tool', 	title: 'Select object tool',	icon: ['sprites.png', 0+7, 2],			attributes: {}		},	
+	{name: 'erase',			title: 'Erase',					icon: ['erase.png', -150+3, 3],			attributes: {size: 30, circle: true, strict: true}	},	
+	{name: 'pencil',		title: 'Pencil',				icon: ['pencil.png', -350+3, 4],		attributes: {}		},	
+	{name: 'line', 			title: 'Draw line',				icon: ['drawline.png', -250+5, -50+2],	attributes: {size: 1, type_values: ['Simple', 'Multi-line', 'Arrow', 'Curve'] }	},	
+	{name: 'brush',			title: 'Brush',					icon: ['brush.png', -450+3, -100+3],	attributes: {type: 'Brush', type_values: ['Brush', 'BezierCurve', 'Chrome', 'Fur', 'Grouped', 'Shaded', 'Sketchy'], size: 10, anti_aliasing: false }, on_update: 'update_brush', },		
 ];

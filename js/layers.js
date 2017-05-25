@@ -116,6 +116,7 @@ function LAYER_CLASS() {
 			
 			img.onload = function () {
 				//check size
+				// todo: CHECAR! Aquí se cambia el tamaño del canvas por el de la imagen
 				var need_resize = false;
 				if (img.width > WIDTH || img.height > HEIGHT) {
 					if (img.width > WIDTH)
@@ -126,6 +127,8 @@ function LAYER_CLASS() {
 					need_resize = true;
 				}
 				//remove initial empty layer
+				// todo: Checar! Este cochino EVENTS.autosize es el que hace que se redimensione
+				EVENTS.autosize = false;
 				if (_this.layers.length == 1 && EVENTS.autosize == true) {
 					var trim_info = IMAGE.trim_info(document.getElementById(_this.layers[0].name));
 					if (trim_info.empty == true) {
@@ -151,7 +154,9 @@ function LAYER_CLASS() {
 				LAYER.layer_active = 0;
 
 				document.getElementById(name).getContext("2d").globalAlpha = 1;
-				document.getElementById(name).getContext('2d').drawImage(img, 0, 0);
+				// Nueva linea para corregir posicion de la imagen al cargar
+				document.getElementById(name).getContext('2d').drawImage(img, 260, 110);
+				//// document.getElementById(name).getContext('2d').drawImage(img, 0, 0);
 				LAYER.layer_renew();
 				if(_this.layers.length == 1 || need_resize == true) {
 					GUI.zoom_auto(true);
@@ -430,6 +435,8 @@ function LAYER_CLASS() {
 		LAYER.layer_renew();
 	};
 	
+	// todo: Checar! posible cambio al inicializar
+
 	this.create_canvas = function (canvas_id) {
 		var new_canvas = document.createElement('canvas');
 		new_canvas.setAttribute('id', canvas_id);
@@ -445,6 +452,32 @@ function LAYER_CLASS() {
 		//sync zoom
 		new_canvas.style.width = Math.round(WIDTH * GUI.ZOOM / 100) + "px";
 		new_canvas.style.height = Math.round(HEIGHT * GUI.ZOOM / 100) + "px";
+
+		// Primer intento: Poner imagen de fondo
+		//setBackground();
+	};
+
+	function setBackground() {
+	  var imgBackground = new Image();
+	    
+	  // imgBackground.src = 'Bolsa.png';
+	  imgBackground.src = prenda;
+	  
+	  imgBackground.onload = function(){
+	    // CHECAR!! si está diponible context
+
+	    if(dateFromPost == 1){
+	      context.drawImage(imgBackground, 96, 0); // Para Playera.png
+	    }
+	    else{
+	      if(dateFromPost == 2){
+	        context.drawImage(imgBackground, 175, 0); // Para Vestido.png
+	      }
+	      else{
+	        context.drawImage(imgBackground, 147, 0); // Para Bolsa.png
+	      }
+	    }
+	  }
 	};
 	this.move_layer = function (direction) {
 		if (this.layers.length < 2)

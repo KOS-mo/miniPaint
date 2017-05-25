@@ -101,6 +101,7 @@ function EDIT_CLASS() {
 		EDIT.edit_clear();
 	};
 	
+	// todo: CHECAR! Cuando se abre un file
 	this.save_state = function () {
 		undo_level = 0;
 		j = 0;
@@ -134,7 +135,10 @@ function EDIT_CLASS() {
 			layers_archive[j].data[LAYER.layers[i].name] = document.createElement('canvas');
 			layers_archive[j].data[LAYER.layers[i].name].width = WIDTH;
 			layers_archive[j].data[LAYER.layers[i].name].height = HEIGHT;
+
 			layers_archive[j].data[LAYER.layers[i].name].getContext('2d').drawImage(document.getElementById(LAYER.layers[i].name), 0, 0);
+			// Nueva linea para cambiar la 
+			//// layers_archive[j].data[LAYER.layers[i].name].getContext('2d').drawImage(document.getElementById(LAYER.layers[i].name), 0, 0);
 		}								
 	};
 	//supports 3 levels undo system - more levels requires more memory
