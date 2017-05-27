@@ -128,7 +128,7 @@ function LAYER_CLASS() {
 				}
 				//remove initial empty layer
 				// todo: Checar! Este cochino EVENTS.autosize es el que hace que se redimensione
-				EVENTS.autosize = false;
+				EVENTS.autosize = false;	// solucion: ponerlo en false para que no se auto
 				if (_this.layers.length == 1 && EVENTS.autosize == true) {
 					var trim_info = IMAGE.trim_info(document.getElementById(_this.layers[0].name));
 					if (trim_info.empty == true) {
@@ -451,34 +451,10 @@ function LAYER_CLASS() {
 		
 		//sync zoom
 		new_canvas.style.width = Math.round(WIDTH * GUI.ZOOM / 100) + "px";
-		new_canvas.style.height = Math.round(HEIGHT * GUI.ZOOM / 100) + "px";
-
-		// Primer intento: Poner imagen de fondo
-		//setBackground();
+		new_canvas.style.height = Math.round(HEIGHT * GUI.ZOOM / 100) + "px";		
 	};
 
-	function setBackground() {
-	  var imgBackground = new Image();
-	    
-	  // imgBackground.src = 'Bolsa.png';
-	  imgBackground.src = prenda;
-	  
-	  imgBackground.onload = function(){
-	    // CHECAR!! si está diponible context
 
-	    if(dateFromPost == 1){
-	      context.drawImage(imgBackground, 96, 0); // Para Playera.png
-	    }
-	    else{
-	      if(dateFromPost == 2){
-	        context.drawImage(imgBackground, 175, 0); // Para Vestido.png
-	      }
-	      else{
-	        context.drawImage(imgBackground, 147, 0); // Para Bolsa.png
-	      }
-	    }
-	  }
-	};
 	this.move_layer = function (direction) {
 		if (this.layers.length < 2)
 			return false;
@@ -637,6 +613,7 @@ function LAYER_CLASS() {
 		}
 	};
 	this.set_canvas_size = function (repaint) {
+		
 		var ratio = WIDTH/HEIGHT;
 		var W = Math.round(WIDTH);
 		var H = Math.round(W / ratio);
@@ -654,6 +631,7 @@ function LAYER_CLASS() {
 
 		GUI.draw_grid();
 
+		// todo: CHECAR! Estas ponen los cuadro que permiten redimensionar el canvas
 		document.getElementById('resize-w').style.marginLeft = W + "px";
 		document.getElementById('resize-w').style.marginTop = Math.round(H / 2) + "px";
 		document.getElementById('resize-h').style.marginLeft = Math.round(W / 2) + "px";

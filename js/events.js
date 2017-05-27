@@ -639,10 +639,17 @@ function EVENTS_CLASS() {
 
 function call_menu(class_name, function_name, parameter) {
 	//close menu
+	/*
+	console.log("Class name and function name:");
+	console.log(class_name);
+	console.log(function_name);
+	console.log("---------------------------");
+	*/
 	var menu = document.querySelector('#main_menu .selected');
 	if(menu != undefined){
 		menu.click(); 
 	}
+
 	GUI.last_menu = function_name;
 
 	//exec

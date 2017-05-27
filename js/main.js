@@ -40,6 +40,30 @@ function getParameter() {
   }
 } // Fin de getParameter()
 
+function setBackground(context) {
+  var imgBackground = new Image();
+ 
+    
+  // imgBackground.src = 'Bolsa.png';
+  imgBackground.src = prenda;
+  
+  imgBackground.onload = function(){
+    // CHECAR!! si está diponible context
+
+    if(dateFromPost == 1){
+      context.drawImage(imgBackground, 96, 0); // Para Playera.png
+    }
+    else{
+      if(dateFromPost == 2){
+        context.drawImage(imgBackground, 175, 0); // Para Vestido.png
+      }
+      else{
+        context.drawImage(imgBackground, 147, 0); // Para Bolsa.png
+      }
+    }
+  }
+};
+
 var MAIN = new MAIN_CLASS();
 document.onload = MAIN.init(true);
 

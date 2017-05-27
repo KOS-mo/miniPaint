@@ -108,7 +108,7 @@ function GUI_CLASS() {
 		var canvas_wrapper = document.querySelector('#canvas_wrapper');
 		//// var page_w = canvas_wrapper.clientWidth;
 		//// var page_h = canvas_wrapper.clientHeight;
-		
+
 		// Nuevas lineas
 		var page_w = 680;
 		var page_h = 462;
@@ -155,6 +155,14 @@ function GUI_CLASS() {
 			canvas.fill();
 			return false;
 		}
+
+		// todo: Lineas nuevas para poner background en el canvas						
+	    if(canvas){
+	        setBackground(canvas);
+	    }
+
+		// todo: CHECAR! Aquí se inicializa
+		/*
 		if (gap == undefined)
 			gap = 10;
 		var fill = true;
@@ -173,6 +181,8 @@ function GUI_CLASS() {
 					fill = true;
 			}
 		}
+		*/
+		// Hasta aquí líneas originales
 	};
 	
 	this.draw_grid = function (gap_x, gap_y) {

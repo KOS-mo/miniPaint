@@ -82,6 +82,7 @@ function IMAGE_CLASS() {
 	};
 
 	//resize
+	// todo: Aquí llamar a la funcion resize_layer con los valores de 90 en 90
 	this.image_resize = function () {
 		this.resize_box();
 	};
@@ -316,6 +317,8 @@ function IMAGE_CLASS() {
 		new_x = Math.ceil(Math.round(new_x * 1000) / 1000);
 		new_y = Math.ceil(Math.round(new_y * 1000) / 1000);
 
+
+/*
 		if (WIDTH != new_x || HEIGHT != new_y) {
 			EDIT.save_state();
 			var dx = 0;
@@ -334,6 +337,8 @@ function IMAGE_CLASS() {
 			canvas_active().clearRect(0, 0, WIDTH, HEIGHT);
 			canvas_active().putImageData(tmp, dx, dy);
 		}
+*/
+
 	};
 
 	//rotate layer
@@ -422,6 +427,7 @@ function IMAGE_CLASS() {
 		POP.show('Resize', [IMAGE, "resize_layer"]);
 	};
 
+	// todo: CHECAR! Esta funcion redimensiona el canvas
 	this.resize_layer = function (user_response) {
 		EDIT.save_state();
 		var width = parseInt(user_response.width);
@@ -483,6 +489,8 @@ function IMAGE_CLASS() {
 			resize_type = 'Hermite';
 			
 			var HERMITE = new Hermite_class();
+
+			// This line resize the image
 			HERMITE.resample_single(canvas_active(true), width, height);
 			
 			if (GUI.last_menu != 'layer_resize') {
@@ -492,9 +500,11 @@ function IMAGE_CLASS() {
 					WIDTH = 1;
 				if (HEIGHT < 1)
 					HEIGHT = 1;
-				LAYER.set_canvas_size();
+
+				// todo: CHECAR! Esta línea es la que redimensiona el canvas
+				// LAYER.set_canvas_size();
 			}
-			GUI.zoom();
+			GUI.zoom(); // Este hace el redimensionado del canvas
 		}
 		else if(user_response.mode == "HQX") {
 			//HQX - 2, 3, 4 scale only, but amazing quality if there are only few colors

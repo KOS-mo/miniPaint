@@ -43,7 +43,7 @@
 			<div style="display:none;" id="main_color_alt" onclick="GUI.toggle_color_select();"></div>
 		</div>
 		<div class="block" id="all_colors"></div>
-		<div class="block" style="visibility: hidden;">
+		<div class="block" style="display: none;">
 			<input type="text" id="color_hex" value="#000000" /><br />
 			<div id="main_color_rgb">
 				<a class="red" href="#" title="Red" onclick="return false;">Red</a>
@@ -60,7 +60,7 @@
 				<br />
 			</div>
 		</div>
-		<div class="block" id="mouse_info" style="visibility: hidden;">
+		<div class="block" id="mouse_info" style="display: none;">
 			<span class="trn mouse_info_title">Size:</span>
 			<span id="mouse_info_size"></span><br />
 			
@@ -76,11 +76,31 @@
 				<span id="mouse_info_area"></span><br />
 			</div>
 		</div>
-		<div class="block" id="action_attributes" style="visibility: hidden;"></div>
+		<div class="block" id="action_attributes" style="display: none;"></div>
 
 		<li class="tool-panel-button tool-button">
-            <img id="pencil-tool" src="img/drawline.png" class="block, fill"  onclick="call_menu(FILE, 'file_open');"/>
-      	</li>      	
+            <img id="fileOpen" src="img/drawline.png" class="block, fill"  onclick="call_menu(FILE, 'file_open');"/>
+      	</li> 
+
+      	<!--Rotate buttons-->
+      	<li class="tool-panel-button tool-button ">
+          <img id="rotateL-tool" src="img/rotateLeft.png" class="block, fill" onclick="call_menu(IMAGE, 'image_rotate_left');"/>
+        </li> 
+        <li class="tool-panel-button tool-button ">
+          <img id="rotateR-tool" src="img/rotateRight.png" class="block, fill" onclick="call_menu(IMAGE, 'image_rotate_right');"/>
+        </li>     	
+
+        <li class="tool-panel-button tool-button ">
+      		<img id="undo-tool" src="img/undo.png" class="trn, block, fill" onclick="call_menu(EDIT, 'edit_undo');" href="#"/>
+        </li>
+
+        <!-- scale buttons -->
+        <li class="tool-panel-button tool-button ">
+      		<img id="scaleMinus" src="img/scaleMinus.png" class="trn, block, fill" onclick="call_menu(EDIT, 'edit_undo');" href="#"/>
+        </li>
+        <li class="tool-panel-button tool-button ">
+      		<img id="scalePlus" src="img/scalePlus.png" class="trn, block, fill" onclick="call_menu(EDIT, 'edit_undo');" href="#"/>
+        </li>
 
 	</div>
 	<div id="canvas_wrapper">
@@ -94,7 +114,7 @@
 		<div id="resize-wh"></div>
 	</div>
 	<div id="sidebar_right">
-		<div id="preview" style="visibility: hidden;">
+		<div id="preview" style="display: none;">
 			<canvas id="canvas_preview"></canvas>
 			<div style="margin-top:105px;padding-left:5px;">
 				<input title="Zoom out" onclick="GUI.zoom(-1, true);" style="width:25px;" class="layer_add" type="button" value="-" />
@@ -105,7 +125,7 @@
 				<input style="width:95%;margin-top:5px;" id="zoom_range" type="range" value="100" min="50" max="1000" step="50" oninput="GUI.zoom(this.value, true);" /> 
 			</div>
 		</div>
-		<div id="layers_base" style="visibility: hidden;">
+		<div id="layers_base" style="display: none;">
 			<b class="trn">Layers</b> <a title="Add new layer" class="layer_add" onclick="EDIT.save_state();LAYER.layer_add();return false;" href="#">+</a>
 			<a title="Move down" onclick="EDIT.save_state();LAYER.move_layer('down');return false;" class="layers_arrow" href="#">&darr;</a>
 			<a title="Move up" onclick="EDIT.save_state();LAYER.move_layer('up');return false;" class="layers_arrow" href="#">&uarr;</a>
@@ -117,18 +137,21 @@
 	<a class="left_mobile_menu" onclick="GUI.toggle('#sidebar_left');return false;" href="#"></a>
 	<a class="right_mobile_menu" onclick="GUI.toggle('#sidebar_right');return false;" href="#"></a>
 </div>
-<div id="main_menu" class="ddsmoothmenu">
+<div id="main_menu" class="ddsmoothmenu"  >
 	<ul>
+<!--	
 	<li>
 		<a class="icon file trn" href="#">File</a>
 		<ul>
 			<li><a class="trn" onclick="call_menu(FILE, 'file_new');" href="#">New</a></li>
-<!--
+
 			<li><a class="trn dots" onclick="call_menu(FILE, 'file_open');" href="#">Open</a></li>
--->
+
 			<li><a class="trn dots" onclick="call_menu(FILE, 'file_save');" href="#">Save as</a></li>		
 		</ul>
 	</li>
+-->
+<!--
 	<li>
 		<a class="icon edit trn" href="#">Edit</a>
 		<ul>
@@ -136,21 +159,26 @@
 			<li><div class="mid-line"></div></li>	
 		</ul>
 	</li>
+-->
 	<li>
 		<a class="icon image trn" href="#">Image</a>
 		<ul>	
 			<li><div class="mid-line"></div></li>
+			<!-- // todo: Aquí llamar a la funcion resize_layer con los valores de 90 en 90 -->
 			<li><a class="trn dots" onclick="call_menu(IMAGE, 'image_resize');" href="#">Resize</a></li>
+<!--			
 			<li class="more">
 				<a class="trn" href="#">Rotate</a>
 				<ul>
 					<li><a class="trn" onclick="call_menu(IMAGE, 'image_rotate_left');" href="#">Left</a></li>
-					<li><a class="trn" onclick="call_menu(IMAGE, 'image_rotate_right');" href="#">Right</a></li>					
+					<li><a class="trn" onclick="call_menu(IMAGE, 'image_rotate_right');" href="#">Right</a></li>
 				</ul>
 			</li>	
+-->
 		</ul>
 	</li>
 	
+<!--	
 	<li>
 		<a class="icon help trn" href="#">Help</a>
 		<ul>
@@ -175,6 +203,7 @@
 			<li><div class="mid-line"></div></li>		
 		</ul>
 	</li>
+-->
 	</ul>
 </div>
 <div style="display:none;" id="tmp"></div>
@@ -198,6 +227,7 @@
 <script src="vendor/translate/jquery.translate.min.js"></script>
 <script src="vendor/hermite-resize/hermite.js"></script>
 
+<!--
 <script src="languages/de.js"></script>
 <script src="languages/es.js"></script>
 <script src="languages/fr.js"></script>
@@ -209,6 +239,7 @@
 <script src="languages/ru.js"></script>
 <script src="languages/tr.js"></script>
 <script src="languages/zh.js"></script>
+-->
 
 <script src="js/events.js"></script>
 <script src="js/file.js"></script>
