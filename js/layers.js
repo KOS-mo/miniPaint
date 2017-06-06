@@ -632,12 +632,14 @@ function LAYER_CLASS() {
 		GUI.draw_grid();
 
 		// todo: CHECAR! Estas ponen los cuadro que permiten redimensionar el canvas
+/*
 		document.getElementById('resize-w').style.marginLeft = W + "px";
 		document.getElementById('resize-w').style.marginTop = Math.round(H / 2) + "px";
 		document.getElementById('resize-h').style.marginLeft = Math.round(W / 2) + "px";
 		document.getElementById('resize-h').style.marginTop = H + "px";
 		document.getElementById('resize-wh').style.marginLeft = W + "px";
 		document.getElementById('resize-wh').style.marginTop = H + "px";
+*/
 
 		this.update_info_block();
 		GUI.redraw_preview();

@@ -341,7 +341,7 @@ input[type="button"]{
 /* ========== 4. Sidebar ==================================================== */
 
 #sidebar_left{
-	position: absolute;
+	/*position: absolute;*/
 	width: 105px;
 	z-index: 100;
 	left:0px;
@@ -591,12 +591,13 @@ input[type="button"]{
 }
 #canvas_wrapper{
 	position:relative;
-	margin: 0 157px 0 105px;
+	/*margin: 0 157px 0 105px;Original*/
+	margin: -17px 0 0 0;/*Nueva linea*/
 	overflow: hidden;
 	height: calc(100vh - 40px);
 }
 #canvas_wrapper canvas{
-	border: 1px solid #393939;
+	/*border: 1px solid #393939; Original Line*/
 	box-sizing: content-box;
 }
 #canvas_back{
@@ -711,3 +712,18 @@ label span{
 	}
 }
 /* ========================================================================== */
+
+
+/*Extra Styles for image*/
+.personje{
+	margin-bottom: 0px;
+}
+
+.herramientas{
+	/*margin-top: 8%;*/
+	padding-right: 0;
+}
+
+.tool-panel-button{
+	height: 50px;
+}

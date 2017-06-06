@@ -110,8 +110,8 @@ function GUI_CLASS() {
 		//// var page_h = canvas_wrapper.clientHeight;
 
 		// Nuevas lineas
-		var page_w = 680;
-		var page_h = 462;
+		var page_w = 685;
+		var page_h = 472;
 
 		var auto_size = false;
 		
@@ -339,6 +339,8 @@ function GUI_CLASS() {
 		document.getElementById('canvas_grid').style.height = Math.round(HEIGHT * this.ZOOM / 100) + "px";
 
 		//check main resize corners
+		// todo: Se desactiva el resize del canvas porque se quitaron esos elementos de la plantilla html
+/*
 		if (this.ZOOM != 100) {
 			document.getElementById('resize-w').style.display = "none";
 			document.getElementById('resize-h').style.display = "none";
@@ -349,6 +351,7 @@ function GUI_CLASS() {
 			document.getElementById('resize-h').style.display = "block";
 			document.getElementById('resize-wh').style.display = "block";
 		}
+*/
 
 		if (scroll != undefined){
 			EVENTS.scroll_window();
