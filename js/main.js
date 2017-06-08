@@ -19,10 +19,10 @@ function getParameter() {
     }
   }
 
-  dateFromPost = $_GET;
+  dateFromPost = $_GET.tipo;
   
   // Checar: Esto es para pruebas
-  dateFromPost = 1;
+  //dateFromPost = 1;
 
   // 1 Playera
   // 2 Vestido

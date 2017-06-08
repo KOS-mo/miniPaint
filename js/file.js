@@ -91,11 +91,12 @@ function FILE_CLASS() {
 		);
 	};
 
-	// todo: CHECAR!
+	// todo: CHECAR! Aquí se quita el hidden de los botones para editar las imagenes
 	//open
 	this.file_open = function () {
 		EDIT.save_state();
 		this.open();
+
 	};
 
 	//save
@@ -107,9 +108,9 @@ function FILE_CLASS() {
 	this.file_print = function () {
 		window.print();
 	};
-
-	this.open = function () {
-		var self = this;
+	
+	this.open = function () {		
+		var self = this;		
 		
 		document.getElementById("tmp").innerHTML = '';
 		var a = document.createElement('input');
@@ -150,6 +151,9 @@ function FILE_CLASS() {
 					//image
 					LAYER.layer_add(this.file.name, event.target.result, this.file.type);
 					self.save_file_info(this.file);
+
+					// check: Here we remove the hidden class to show the buttons to edit Images.
+					document.getElementById("buttonsForImage").style.visibility = "visible";
 				}
 				else {
 					//json

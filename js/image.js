@@ -82,9 +82,24 @@ function IMAGE_CLASS() {
 	};
 
 	//resize
-	// todo: Aquí llamar a la funcion resize_layer con los valores de 90 en 90
-	this.image_resize = function () {
+	this.image_resize = function () {		
 		this.resize_box();
+	};
+
+	//resize plus
+	// todo: Aquí llamar a la funcion resize_layer con los valores de 110 en 110
+	this.image_resize_plus = function () {
+		this.resize_layer({height: "", height_percent:"110", mode: "Resample - Hermite", preblur: "No", 
+			sharpen: "No", width: "", width_percent: "110"
+		});		
+	};
+
+	//resize minus
+	// todo: Aquí llamar a la funcion resize_layer con los valores de 90 en 90
+	this.image_resize_min = function () {
+		this.resize_layer({height: "", height_percent:"90", mode: "Resample - Hermite", preblur: "No", 
+			sharpen: "No", width: "", width_percent: "90"
+		});		
 	};
 
 	//rotate left
@@ -474,6 +489,7 @@ function IMAGE_CLASS() {
 		}
 		
 		//validate
+		// check! here mode is being change
 		if (user_response.mode == "Resample - Hermite" && (width > WIDTH || height > HEIGHT)){
 			//scalling up - Hermite not supported
 			user_response.mode = "Resize";
@@ -504,7 +520,7 @@ function IMAGE_CLASS() {
 				// todo: CHECAR! Esta línea es la que redimensiona el canvas
 				// LAYER.set_canvas_size();
 			}
-			GUI.zoom(); // Este hace el redimensionado del canvas
+			//GUI.zoom(); // Este hace el redimensionado del canvas
 		}
 		else if(user_response.mode == "HQX") {
 			//HQX - 2, 3, 4 scale only, but amazing quality if there are only few colors
@@ -538,9 +554,9 @@ function IMAGE_CLASS() {
 			canvas_active().clearRect(0, 0, WIDTH, HEIGHT);
 			WIDTH = width;
 			HEIGHT = height;
-			LAYER.set_canvas_size();
+			//LAYER.set_canvas_size(); // CHECK! Este cambia el tamaño del canvas
 			canvas_active().drawImage(tmp_data, 0, 0, width, height);
-			GUI.zoom();
+			GUI.zoom(); // todo: check! this zoom() rescale the canvas
 		}
 		
 		//sharpen after?

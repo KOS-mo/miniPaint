@@ -25,7 +25,7 @@
 	<div class="col-xs-10 col-xs-offset-1  col-sm-10 col-sm-offset-1  col-md-10 col-md-offset-1  col-lg-10 col-lg-offset-1">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 herramientas">
 			<!-- tools panel -->
-			<div id="tools-panel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 block">
+			<div id="tools-panel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 block">				
 <!--START-->
 				<div id="wrapper">
 					<div id="sidebar_left">	
@@ -85,29 +85,15 @@
 
 						<div class="block" id="action_attributes" style="display: none;"></div>
 
+						<!--To open Image-->
 						<li class="tool-panel-button tool-button">
 				            <img id="fileOpen" src="img/drawline.png" class="block, fill"  onclick="call_menu(FILE, 'file_open');"/>
 				      	</li> 
-
-				      	<!--Rotate buttons-->
-				      	<li class="tool-panel-button tool-button ">
-				          <img id="rotateL-tool" src="img/rotateLeft.png" class="block, fill" onclick="call_menu(IMAGE, 'image_rotate_left');"/>
-				        </li> 
-				        <li class="tool-panel-button tool-button ">
-				          <img id="rotateR-tool" src="img/rotateRight.png" class="block, fill" onclick="call_menu(IMAGE, 'image_rotate_right');"/>
-				        </li>     	
-
+																     
 				        <li class="tool-panel-button tool-button ">
 				      		<img id="undo-tool" src="img/undo.png" class="trn, block, fill" onclick="call_menu(EDIT, 'edit_undo');" href="#"/>
 				        </li>
-
-				        <!-- scale buttons -->
-				        <li class="tool-panel-button tool-button ">
-				      		<img id="scaleMinus" src="img/scaleMinus.png" class="trn, block, fill" onclick="call_menu(EDIT, 'edit_undo');" href="#"/>
-				        </li>
-				        <li class="tool-panel-button tool-button ">
-				      		<img id="scalePlus" src="img/scalePlus.png" class="trn, block, fill" onclick="call_menu(EDIT, 'edit_undo');" href="#"/>
-				        </li>
+				        
 					</div>
 					
 					
@@ -137,6 +123,25 @@
 
 			<!--Buttons to edit Images-->
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 block buttonsWithText" id="buttonsForImage" style="visibility: hidden;">
+				<ul class="buttons-to-edit-images">							
+
+			      	<!--Rotate buttons-->
+			      	<li class="tool-panel-button tool-button ">
+			          <img id="rotateL-tool" src="img/rotateLeft.png" class="block, fill" onclick="call_menu(IMAGE, 'image_rotate_left');"/>
+			        </li> 
+			        <li class="tool-panel-button tool-button ">
+			          <img id="rotateR-tool" src="img/rotateRight.png" class="block, fill" onclick="call_menu(IMAGE, 'image_rotate_right');"/>
+			        </li>   
+
+			        <!-- scale buttons -->
+			        <li class="tool-panel-button tool-button ">
+			      		<img id="scaleMinus" src="img/scaleMinus.png" class="trn, block, fill" onclick="call_menu(IMAGE, 'image_resize_min');" href="#"/>
+			      		
+			        </li>
+			        <li class="tool-panel-button tool-button ">
+			      		<img id="scalePlus" src="img/scalePlus.png" class="trn, block, fill" onclick="call_menu(IMAGE, 'image_resize_plus');" href="#"/>
+			        </li>  								
+				</ul>
 			</div>
 
 		</div>
@@ -190,6 +195,7 @@
 	<a class="right_mobile_menu" onclick="GUI.toggle('#sidebar_right');return false;" href="#"></a>
 </div>
 
+<!--
 <div id="main_menu" class="ddsmoothmenu">
 	<ul>
 		<li>
@@ -197,16 +203,16 @@
 			<ul>	
 				<li>
 					<div class="mid-line"></div>
-				</li>
-				<!-- // todo: Aquí llamar a la funcion resize_layer con los valores de 90 en 90 -->
+				</li>				
 				<li>
-					<a class="trn dots" onclick="call_menu(IMAGE, 'image_resize');" href="#">Resize</a>
+					<a class="trn dots" onclick="call_menu(IMAGE, 'image_resize_min');" href="#">Resize</a>
 				</li>
 
 			</ul>
 		</li>	
 	</ul>
 </div>
+-->
 
 <div style="display:none;" id="tmp"></div>
 <div id="popup"></div>
