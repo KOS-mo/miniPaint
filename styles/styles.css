@@ -23,7 +23,7 @@ body{
 	padding-top: 30px;
 	background-color:#727272;
 	font-weight: normal;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 canvas{
 	position: absolute;
@@ -726,4 +726,10 @@ label span{
 
 .tool-panel-button{
 	height: 50px;
+}
+
+.downloadButton{
+	float: right;
+	margin-right: 15%;
+	margin-top: -3%;
 }

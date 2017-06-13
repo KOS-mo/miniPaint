@@ -120,9 +120,11 @@ function LAYER_CLASS() {
 				var need_resize = false;
 				if (img.width > WIDTH || img.height > HEIGHT) {
 					if (img.width > WIDTH)
-						WIDTH = img.width;
+						//WIDTH = img.width;
+						img.width = 10;
 					if (img.height > HEIGHT)
-						HEIGHT = img.height;
+						//HEIGHT = img.height;
+						img.height = 10;
 					LAYER.set_canvas_size();
 					need_resize = true;
 				}

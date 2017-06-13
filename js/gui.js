@@ -332,6 +332,8 @@ function GUI_CLASS() {
 		document.getElementById('canvas_back').style.width = Math.round(WIDTH * this.ZOOM / 100) + "px";
 		document.getElementById('canvas_back').style.height = Math.round(HEIGHT * this.ZOOM / 100) + "px";
 		*/
+
+		// todo: posiblemente acá se deba evitar el redimensionado del canvas al cargar imagenes grandes
 		for (var i in LAYER.layers) {
 			document.getElementById(LAYER.layers[i].name).style.width = Math.round(WIDTH * this.ZOOM / 100) + "px";
 			document.getElementById(LAYER.layers[i].name).style.height = Math.round(HEIGHT * this.ZOOM / 100) + "px";
